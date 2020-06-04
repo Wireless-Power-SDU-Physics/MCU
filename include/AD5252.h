@@ -22,7 +22,7 @@ float AD5252_readR(int channel){ //Read resistance
     Wire.beginTransmission(Addr);
     Wire.write(channel);
     Wire.endTransmission();
-    Wire.requestForm(Addr,1); //Request 1 byte of data
+    Wire.requestFrom(Addr,1); //Request 1 byte of data
 
     int data = -256;
     //Read 1 byte if data
