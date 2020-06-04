@@ -2,8 +2,12 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+#include <AD5252.h>
+
 uint16_t i;
 void setup() {
+  AD5252_setup(); //Initialise I2C communication with AD5252
+
   DDRB |= (1 << DDB1) | (1 << DDB2); //set Pins to output
 
   cli();//stop interrupts
