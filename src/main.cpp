@@ -31,7 +31,7 @@ void setup() {
   //TIMSK1 |= (1 << OCIE1A);
   sei();//allow interrupts
 
-  Serial.begin(115200);
+  Serial.begin(9600);
 }
 
 ISR(TIMER1_COMPA_vect){//timer1 interrupt, not used
@@ -39,8 +39,10 @@ ISR(TIMER1_COMPA_vect){//timer1 interrupt, not used
 
 
 void loop() {
+  Serial.println("Hi");
   float R1 = AD5252_readR1();
-  float R2 = AD5252_readR2();
+  //float R2 = AD5252_readR2();
   Serial.println(R1);
-  Serial.println(R2);
+  //Serial.println(R2);
+  delay(1000);
 }

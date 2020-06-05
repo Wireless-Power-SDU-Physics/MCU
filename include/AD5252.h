@@ -45,6 +45,8 @@ float AD5252_readR2(){ //Read POT-3 resistance
 }
 
 void AD5252_setup(){ //Setup AD5252
+    DDRB |= (1 << DDB0);
+    PORTB |= (1 << PORTB0);
     Wire.begin();   //Initialise I2C communication as Master
     AD5252_setR1(0x80);
     AD5252_setR2(0x80);
