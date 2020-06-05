@@ -18,7 +18,7 @@ void AD5252_setR2(int R2){ //Set POT-3 resistance
     AD5252_setR(0x03,R2);
 }
 
-float AD5252_readR(int channel){ //Read resistance
+int AD5252_readR(int channel){ //Read resistance
     Wire.beginTransmission(Addr);
     Wire.write(byte(channel));
     Wire.endTransmission();
@@ -29,9 +29,7 @@ float AD5252_readR(int channel){ //Read resistance
     if(Wire.available() == 1){
         data = Wire.read();
     }
-    float res = (data/256) * 1.0;
-
-    return res;
+    return data;
 }
 
 float AD5252_readR1(){ //Read POT-1 resistance

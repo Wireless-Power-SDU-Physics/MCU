@@ -7,8 +7,8 @@
 uint16_t i;
 void setup() {
   AD5252_setup(); //Initialise I2C communication with AD5252
-  AD5252_setR1(10);
-  AD5252_setR2(10);
+  AD5252_setR1(200);
+  AD5252_setR2(200);
 
   //DDRB |= (1 << DDB1) | (1 << DDB2); //set Pins to output
 
@@ -42,8 +42,8 @@ ISR(TIMER1_COMPA_vect){//timer1 interrupt, not used
 
 void loop() {
   //Serial.println("Hi");
-  float R1 = AD5252_readR1();
-  float R2 = AD5252_readR2();
+  int R1 = AD5252_readR1();
+  int R2 = AD5252_readR2();
   Serial.println(R1);
   Serial.println(R2);
   delay(1000);
