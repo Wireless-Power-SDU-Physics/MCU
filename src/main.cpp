@@ -7,10 +7,10 @@
 uint16_t i;
 void setup() {
   AD5252_setup(); //Initialise I2C communication with AD5252
-  AD5252_setR1(200);
-  AD5252_setR2(200);
+  AD5252_setR1(255);
+  AD5252_setR2(255);
 
-  //DDRB |= (1 << DDB1) | (1 << DDB2); //set Pins to output
+  DDRB |= (1 << DDB1) | (1 << DDB2); //set Pins to output
 
   cli();//stop interrupts
   TCCR1A = 0;// set entire TCCR1A register to 0
