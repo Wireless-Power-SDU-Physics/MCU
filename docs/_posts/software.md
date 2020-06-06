@@ -20,7 +20,7 @@ AD5252是一款具有256位双通道、I2C、非易失性存储器的数控电�
 ### 实现源码:
 AD5252阻值设定：
 ```c/c++
-void AD5252_setR(int channel,int R1){ //Set POT
+void AD5252::setR(int channel,int R1){ //Set POT
 	Wire.beginTransmission(Addr); //Start Transmission
 	Wire.write(byte(channel)); //Send instruction for channel
 	Wire.write(R1); //send resistance value
@@ -30,7 +30,7 @@ void AD5252_setR(int channel,int R1){ //Set POT
 
 AD5252阻值读取：
 ```C/c++
-int AD5252_readR(int channel){ //Read resistance
+int AD5252::readR(int channel){ //Read resistance
     Wire.beginTransmission(Addr);
     Wire.write(byte(channel)); //Send instruction for channel
     Wire.endTransmission();
